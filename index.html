@@ -20,8 +20,7 @@
     <!-- <Calendar Event Link> -->
     <div class="row g-3 needs-validation">
       <div class="input-group has-validation mb-3 col">
-        <input id="reg-form-link" type="text" class="form-control" placeholder="Registration Form URL"
-          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input id="reg-form-link" type="text" class="form-control" placeholder="Registration Form URL">
         <button id="reg-form-link-button" class="btn btn-secondary" type="button" id="button-addon2">Generate
           Link</button>
         <div class="invalid-feedback">
@@ -29,6 +28,7 @@
         </div>
       </div>
       <div id="new-calendar-div" class="input-group mb-3 col" style="visibility:hidden;">
+        <span class="input-group-text">Calendar Event URL</span>
         <input id="new-calendar-event-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
         <a id="test-calendar-link" class="btn btn-primary" type="button" target="_blank">
@@ -64,7 +64,7 @@
     <!-- <QA Form Link> -->
     <div class="row g-3">
       <div class="input-group mb-3 col">
-        <input id="qa-form-link" type="text" class="form-control" placeholder="Registration Form URL (QA Form)"
+        <input id="qa-form-link" type="text" class="form-control" placeholder="QA Form URL"
           aria-label="Recipient's username" aria-describedby="button-addon2">
         <button id="qa-form-link-button" class="btn btn-secondary" type="button" id="button-addon2">Generate
           Link</button>
@@ -73,6 +73,7 @@
         </div>
       </div>
       <div id="new-qa-form-div" class="input-group mb-3 col" style="visibility:hidden;">
+        <span class="input-group-text">QA Form URL</span>
         <input id="new-qa-form-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
         <a id="test-qa-form-link" class="btn btn-primary" type="button" target="_blank">
@@ -117,6 +118,7 @@
         </div>
       </div>
       <div id="new-qa-admin-div" class="input-group mb-3 col" style="visibility:hidden;">
+        <span class="input-group-text">QA Admin URL</span>
         <input id="new-qa-admin-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
         <a id="test-qa-admin-link" class="btn btn-primary" type="button" target="_blank">

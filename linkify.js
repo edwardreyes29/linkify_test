@@ -1,18 +1,12 @@
 const CALENDAR_EVENT_LINK_FORMAT = "https://calendar-test/regi/?event=<seid_2>";
 const QA_FORM_LINK_FORMAT = "https://qa-form-link-test/regi/submit-question/?&seid=<seid_2>";
-const QA_ADMIN_LINK_FORMAT = "https://qa-admin-link-test/regi/?acess=2002203&seid=<seid>";
+const QA_ADMIN_LINK_FORMAT = "https://qa-admin-link-test/regi/?access=2002203&seid=<seid>";
 
 $("#reg-form-link-button").click(() => {
   let reg_form_link = $('#reg-form-link').val();
   let generatedLink = generateCalendarEventLink(reg_form_link)
 
-  if ($("#calendar-copy-button").hasClass("btn-success")) {
-    $("#calendar-copy-button").removeClass("btn-success")
-    $("#calendar-copy-button").addClass("btn-secondary")
-    
-    $("#calendar-clip-2").hide();
-    $("#calendar-clip-1").show();
-  }
+  toggleClipOff("#calendar-copy-button", "#calendar-clip-1", "#calendar-clip-2");
 
   if (generatedLink) {
     if ($("#reg-form-link").hasClass("is-invalid")) {
@@ -31,13 +25,7 @@ $("#qa-form-link-button").click(() => {
   let qa_form_link = $('#qa-form-link').val();
   let generatedLink = generateQAFormLink(qa_form_link);
 
-  if ($("#qa-form-copy-button").hasClass("btn-success")) {
-    $("#qa-form-copy-button").removeClass("btn-success")
-    $("#qa-form-copy-button").addClass("btn-secondary")
-    
-    $("#qa-form-clip-2").hide();
-    $("#qa-form-clip-1").show();
-  }
+  toggleClipOff("#qa-form-copy-button", "#qa-form-clip-1", "#qa-form-clip-2");
 
   if (generatedLink) {
     if ($("#qa-form-link").hasClass("is-invalid")) {
@@ -56,13 +44,7 @@ $("#qa-admin-link-button").click(() => {
   let qa_admin_link = $("#qa-admin-link").val();
   let generatedLink = generateQAAdminLink(qa_admin_link);
 
-  if ($("#qa-admin-copy-button").hasClass("btn-success")) {
-    $("#qa-admin-copy-button").removeClass("btn-success")
-    $("#qa-admin-copy-button").addClass("btn-secondary")
-    
-    $("#qa-admin-clip-2").hide();
-    $("#qa-admin-clip-1").show();
-  }
+  toggleClipOff("#qa-admin-copy-button", "#qa-admin-clip-1", "#qa-admin-clip-2");
 
   if (generatedLink) {
     if ($("#qa-admin-link").hasClass("is-invalid")) {
@@ -124,31 +106,50 @@ $("#calendar-copy-button").click(() => {
   $("#new-calendar-event-link").val($("#new-calendar-event-link").val()).select();
   document.execCommand("copy");
 
-  $("#calendar-copy-button").removeClass("btn-secondary")
-  $("#calendar-copy-button").addClass("btn-success")
-  
-  $("#calendar-clip-1").hide();
-  $("#calendar-clip-2").show();
+  toggleClipOn("#calendar-copy-button", "#calendar-clip-1", "#calendar-clip-2")
+
+  // switch other clips off
+  toggleClipOff("#qa-admin-copy-button", "#qa-admin-clip-1", "#qa-admin-clip-2");
+  toggleClipOff("#qa-form-copy-button", "#qa-form-clip-1", "#qa-form-clip-2");
+
 })
 
 $("#qa-form-copy-button").click(() => {
   $("#new-qa-form-link").val($("#new-qa-form-link").val()).select();
   document.execCommand("copy");
-  
-  $("#qa-form-copy-button").removeClass("btn-outline-secondary")
-  $("#qa-form-copy-button").addClass("btn-success")
 
-  $("#qa-form-clip-1").hide();
-  $("#qa-form-clip-2").show();
+  toggleClipOn("#qa-form-copy-button", "#qa-form-clip-1", "#qa-form-clip-2")
+
+  // switch other clicks off
+  toggleClipOff("#calendar-copy-button", "#calendar-clip-1", "#calendar-clip-2");
+  toggleClipOff("#qa-admin-copy-button", "#qa-admin-clip-1", "#qa-admin-clip-2");
 })
 
 $("#qa-admin-copy-button").click(() => {
   $("#new-qa-admin-link").val($("#new-qa-admin-link").val()).select();
   document.execCommand("copy");
-  
-  $("#qa-admin-copy-button").removeClass("btn-outline-secondary")
-  $("#qa-admin-copy-button").addClass("btn-success")
 
-  $("#qa-admin-clip-1").hide();
-  $("#qa-admin-clip-2").show();
+  toggleClipOn("#qa-admin-copy-button", "#qa-admin-clip-1", "#qa-admin-clip-2")
+
+  // switch other clips off
+  toggleClipOff("#calendar-copy-button", "#calendar-clip-1", "#calendar-clip-2");
+  toggleClipOff("#qa-form-copy-button", "#qa-form-clip-1", "#qa-form-clip-2");
 })
+
+const toggleClipOff = (button_id, clip_id_1, clip_id_2) => {
+  if ($(button_id).hasClass("btn-success")) {
+    $(button_id).removeClass("btn-success")
+    $(button_id).addClass("btn-secondary")
+
+    $(clip_id_2).hide();
+    $(clip_id_1).show();
+  }
+}
+
+const toggleClipOn = (button_id, clip_id_1, clip_id_2) => {
+  $(button_id).removeClass("btn-secondary")
+  $(button_id).addClass("btn-success")
+
+  $(clip_id_1).hide();
+  $(clip_id_2).show();
+}
