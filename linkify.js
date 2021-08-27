@@ -111,6 +111,9 @@ $("#qa-form-copy-button").click(() => {
   
   $("#qa-form-copy-button").removeClass("btn-outline-secondary")
   $("#qa-form-copy-button").addClass("btn-success")
+
+  $("#qa-form-clip-1").hide();
+  $("#qa-form-clip-2").show();
 })
 
 $("#qa-admin-copy-button").click(() => {
