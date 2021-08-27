@@ -2,6 +2,11 @@ const CALENDAR_EVENT_LINK_FORMAT = "https://calendar-test/regi/?event=<seid_2>";
 const QA_FORM_LINK_FORMAT = "https://qa-form-link-test/regi/submit-question/?&seid=<seid_2>";
 const QA_ADMIN_LINK_FORMAT = "https://qa-admin-link-test/regi/?acess=2002203&seid=<seid>";
 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+
 $("#reg-form-link-button").click(() => {
   let reg_form_link = $('#reg-form-link').val();
   console.log("registration form:", reg_form_link)
@@ -82,9 +87,7 @@ const generateQAFormLink = url => {
 
 const generateQAAdminLink = url => {
   let searchParams = getSearchParams(url);
-  console.log(searchParams)
   let seid = searchParams.get('seid');
-  console.log(seid);
   if (seid) {
     let newLink = QA_ADMIN_LINK_FORMAT;
     newLink = newLink.replace("<seid>", seid);
@@ -122,4 +125,7 @@ $("#qa-admin-copy-button").click(() => {
   
   $("#qa-admin-copy-button").removeClass("btn-outline-secondary")
   $("#qa-admin-copy-button").addClass("btn-success")
+
+  $("#qa-admin-clip-1").hide();
+  $("#qa-admin-clip-1").show();
 })
