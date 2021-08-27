@@ -12,17 +12,24 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 class="display-4">Linkify Test</h1>
-      <!-- <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a> -->
+  <div class="jumbotron bg-info text-light">
+    <div class="container">
+      <h1 class="display-4">URL Converter Test</h1>
     </div>
+  </div>
+  <div class="container">
     <!-- <Calendar Event Link> -->
     <div class="row g-3 needs-validation">
       <div class="input-group has-validation mb-3 col">
         <input id="reg-form-link" type="text" class="form-control" placeholder="Registration Form URL">
-        <button id="reg-form-link-button" class="btn btn-secondary" type="button" id="button-addon2">Generate
-          Link</button>
+        <button id="reg-form-link-button" class="btn btn-secondary" type="button"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Generate Link"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
         <div class="invalid-feedback">
           No 'event' parameter found in URL
         </div>
@@ -31,7 +38,9 @@
         <span class="input-group-text">Calendar Event URL</span>
         <input id="new-calendar-event-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
-        <a id="test-calendar-link" class="btn btn-primary" type="button" target="_blank">
+        <a id="test-calendar-link" class="btn btn-primary" type="button" target="_blank"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Test Link"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link"
             viewBox="0 0 16 16">
             <path
@@ -40,7 +49,9 @@
               d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
           </svg>
         </a>
-        <button id="calendar-copy-button" class="btn btn-secondary" type="button">
+        <button id="calendar-copy-button" class="btn btn-secondary" type="button"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Copy"
+        >
           <svg id="calendar-clip-1" style="display: block" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
             <path
@@ -62,12 +73,17 @@
       </div>
     </div>
     <!-- <QA Form Link> -->
-    <div class="row g-3">
-      <div class="input-group mb-3 col">
-        <input id="qa-form-link" type="text" class="form-control" placeholder="QA Form URL"
-          aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button id="qa-form-link-button" class="btn btn-secondary" type="button" id="button-addon2">Generate
-          Link</button>
+    <div class="row g-3 needs-validation">
+      <div class="input-group has-validation  mb-3 col">
+        <input id="qa-form-link" type="text" class="form-control" placeholder="QA Form URL">
+        <button id="qa-form-link-button" class="btn btn-secondary" type="button"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Generate Link"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
         <div class="invalid-feedback">
           No 'event' parameter found in URL
         </div>
@@ -76,7 +92,9 @@
         <span class="input-group-text">QA Form URL</span>
         <input id="new-qa-form-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
-        <a id="test-qa-form-link" class="btn btn-primary" type="button" target="_blank">
+        <a id="test-qa-form-link" class="btn btn-primary" type="button" target="_blank"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Test Link"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link"
             viewBox="0 0 16 16">
             <path
@@ -85,7 +103,9 @@
               d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
           </svg>
         </a>
-        <button id="qa-form-copy-button" class="btn btn-secondary" type="button" id="button-addon2">
+        <button id="qa-form-copy-button" class="btn btn-secondary" type="button" 
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Copy"
+        >
           <svg id="qa-form-clip-1" style="display: block" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
             <path
@@ -107,12 +127,17 @@
       </div>
     </div>
     <!-- <QA Admin Link> -->
-    <div class="row g-3">
-      <div class="input-group mb-3 col">
-        <input id="qa-admin-link" type="text" class="form-control" placeholder="QA Form browser url"
-          aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button id="qa-admin-link-button" class="btn btn-secondary" type="button" id="button-addon2">Generate
-          Link</button>
+    <div class="row g-3 needs-validation">
+      <div class="input-group has-validation  mb-3 col">
+        <input id="qa-admin-link" type="text" class="form-control" placeholder="QA Form browser url">
+        <button id="qa-admin-link-button" class="btn btn-secondary" type="button"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Generate Link"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
         <div class="invalid-feedback">
           No 'seid' parameter found in URL
         </div>
@@ -121,7 +146,9 @@
         <span class="input-group-text">QA Admin URL</span>
         <input id="new-qa-admin-link" type="text" class="form-control" placeholder="<Generated link here>"
           aria-label="Recipient's username" aria-describedby="button-addon2">
-        <a id="test-qa-admin-link" class="btn btn-primary" type="button" target="_blank">
+        <a id="test-qa-admin-link" class="btn btn-primary" type="button" target="_blank"
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Test Link"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link"
             viewBox="0 0 16 16">
             <path
@@ -130,7 +157,9 @@
               d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
           </svg>
         </a>
-        <button id="qa-admin-copy-button" class="btn btn-secondary" type="button" id="button-addon2">
+        <button id="qa-admin-copy-button" class="btn btn-secondary" type="button" 
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Copy"
+        >
 
           <svg id="qa-admin-clip-1" style="display: block" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">

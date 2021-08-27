@@ -2,6 +2,11 @@ const CALENDAR_EVENT_LINK_FORMAT = "https://calendar-test/regi/?event=<seid_2>";
 const QA_FORM_LINK_FORMAT = "https://qa-form-link-test/regi/submit-question/?&seid=<seid_2>";
 const QA_ADMIN_LINK_FORMAT = "https://qa-admin-link-test/regi/?access=2002203&seid=<seid>";
 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 $("#reg-form-link-button").click(() => {
   let reg_form_link = $('#reg-form-link').val();
   let generatedLink = generateCalendarEventLink(reg_form_link)
